@@ -48,3 +48,18 @@ The -e option in Ansible is used to pass extra variables to the playbook. These 
 -e ansible_user=centos: Sets the ansible_user variable to the value centos. This variable represents the remote user that Ansible should use when connecting to the target hosts.
 -e ansible_password=DevOps321: Sets the ansible_password variable to the value DevOps321. This variable could be used for providing the password required for authentication, especially if you are not using SSH keys.
 So, the -e option allows you to pass these extra variables from the command line, and you can use these variables within your playbook to customize its behavior
+
+-- installing nginx using playbook
+- name: install and run nginx 
+  hosts: web 
+  become: yes #for root access
+  tasks:
+  - name: install nginx package (- must be under t in tasks)
+    ansible.builtin.package: 
+      name: nginx 
+      state: present
+  - name: run nginx service 
+    ansible.builtin.service:
+      name: nginx
+      state: started
+
