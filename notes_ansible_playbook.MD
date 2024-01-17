@@ -37,3 +37,7 @@ web
 catalogue
 cart
 command to execute inventory = ansible -i inventory web -list-hosts
+command for all hosts in inventory file = ansible -i inventory all -list-hosts
+ansible command for target hosts with playbook:
+- have to mention host public ip address in palybooks hosts 
+command: ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 01-playbook.yaml
